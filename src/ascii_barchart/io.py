@@ -1,0 +1,1 @@
+rows = load_rows("data/points.csv")

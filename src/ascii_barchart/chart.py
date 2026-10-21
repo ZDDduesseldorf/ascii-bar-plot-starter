@@ -1,12 +1,6 @@
 from rich.console import Console
 import math
 
-values = [
-    ("A", 2.16),
-    ("B", 4.33),
-    ("C", 6.57),
-    ("D", 8.71),
-]
 
 def scale_bar(value, maximum, width):
     if maximum <= 0:
@@ -34,6 +28,3 @@ def render_bar_chart(values):
 
     return
 
-
-
-render_bar_chart(values)

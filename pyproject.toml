@@ -1,0 +1,16 @@
+[project]
+name = "ascii-barchart"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Mo00963", email = "alshemalimohamad@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "rich>=15.0.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.4,<0.14.0"]
+build-backend = "uv_build"

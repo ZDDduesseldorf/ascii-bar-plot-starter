@@ -555,3 +555,4 @@ Euer Praktikum ist abgeschlossen, wenn:
 5. Warum beginnen die Imports in `cli.py` mit `.`?
 6. Warum können Person A und Person B gleichzeitig arbeiten, ohne dieselbe Datei zu editieren?
 7. Was müsste eine dritte Person tun, um morgen einen frischen Clone des Projekts auszuführen?
+# fuck asser

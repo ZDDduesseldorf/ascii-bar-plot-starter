@@ -78,7 +78,9 @@ if exists("pyproject.toml"):
             isinstance(dep, str) and dep.strip().lower().startswith("rich")
             for dep in dependencies
         )
-        add_result("project name is ascii-barchart", project.get("name") == "ascii-barchart")
+        add_result(
+            "project name is ascii-barchart", project.get("name") == "ascii-barchart"
+        )
         add_result("rich is declared as dependency", rich_declared)
         add_result("a build-system is configured", bool(config.get("build-system")))
         project_ok = True
@@ -93,7 +95,9 @@ else:
 tag_check = run(["git", "rev-parse", "--verify", "refs/tags/starter"])
 if tag_check.returncode == 0:
     history = run(["git", "log", "starter..HEAD", "--format=%ae"])
-    authors = sorted({line.strip() for line in history.stdout.splitlines() if line.strip()})
+    authors = sorted(
+        {line.strip() for line in history.stdout.splitlines() if line.strip()}
+    )
     add_result(
         "commits from at least two contributors",
         len(authors) >= 2,
@@ -138,7 +142,9 @@ if project_ok and exists("uv.lock"):
     else:
         add_result("ascii_barchart can be imported", False, "uv sync failed first")
         add_result("CLI processes data/points.csv", False, "uv sync failed first")
-        add_result("CLI output contains all categories A-D", False, "uv sync failed first")
+        add_result(
+            "CLI output contains all categories A-D", False, "uv sync failed first"
+        )
 else:
     add_result("uv sync --locked succeeds", False, "pyproject.toml or uv.lock missing")
     add_result("ascii_barchart can be imported", False, "project not ready")

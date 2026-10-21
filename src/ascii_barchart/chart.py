@@ -1,4 +1,4 @@
-from rich import print
+from rich.console import Console
 import math
 
 values = [
@@ -8,8 +8,6 @@ values = [
     ("D", 8.71),
 ]
 
-
-
 def scale_bar(value, maximum, width):
     if maximum <= 0:
         return 0
@@ -17,19 +15,25 @@ def scale_bar(value, maximum, width):
 
 
 def render_bar_chart(values):
-    print("[bold yellow]So verteilen sich die verschiedenen Kategorien:")
+    console = Console()
+    console.print("[bold yellow]So verteilen sich die verschiedenen Kategorien:[/bold yellow]")
     width = 50
     max_value = 0
     for e in values:
         if e[1] > max_value:
             max_value = e[1]
     max_chart = math.ceil(max_value)
-
-    for e in values:
-        scale = scale_bar(e[1], max_chart, width)
-        empty = scale - width
-        print(e[0], scale * "-", (width - scale) * " ", e[1])
+    i = 0
+    colors = ["dark_turquoise", "purple4", "medium_orchid3", "gold3"]
+    for i, (name, value) in enumerate(values):
+        scale = scale_bar(value, max_chart, width)
+        bar = "-" * scale
+        
+        console.print(name, scale * "-", (width - scale) * " ", value, style = colors[i])
+        
 
     return
+
+
 
 render_bar_chart(values)

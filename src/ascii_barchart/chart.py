@@ -20,9 +20,7 @@ def render_bar_chart(values, width=40):
         bar = "█" * scale_bar(value, maximum, width)
         color = colors[index % len(colors)]
 
-        console.print(
-            f"{category} | [{color}]{bar:<{width}}[/{color}] {value:.2f}"
-        )
+        console.print(f"{category} | [{color}]{bar:<{width}}[/{color}] {value:.2f}")
 
 
 if __name__ == "__main__":
